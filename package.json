@@ -1,25 +1,26 @@
 {
-  "name": "practice",
-  "version": "1.0.0",
-  "description": "practice for node.js and express",
-  "main": "index.js",
-  "scripts": {
-    "dev": "nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "keywords": [
-    "node",
-    "express",
-    "practice"
-  ],
-  "author": "Tomás",
-  "license": "MIT",
-  "dependencies": {
-    "express": "^4.19.2",
-    "zod": "3.23.8"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.4"
-  }
+	"name": "practice",
+	"version": "1.0.0",
+	"description": "practice for node.js and express",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"dev": "nodemon server.js",
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node server.js"
+	},
+	"keywords": [
+		"node",
+		"express",
+		"practice"
+	],
+	"author": "Tomás",
+	"license": "MIT",
+	"dependencies": {
+		"express": "^4.19.2",
+		"zod": "3.23.8"
+	},
+	"devDependencies": {
+		"nodemon": "^3.1.4"
+	}
 }
