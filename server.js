@@ -4,6 +4,8 @@ import { validateNote, validatePartialNote } from "./notes.js";
 const app = express();
 const PORT = process.env.PORT ?? 3000;
 
+app.disable("x-powered-by");
+
 app.listen(PORT, () => {
 	console.log(`server running on https://localhost:${PORT}`);
 });
@@ -18,7 +20,19 @@ let notes = [
 	},
 ];
 
+const ACCEPTED_ORIGINS = [
+	"http://localhost:3000",
+	"http://localhost:1234",
+	"http://localhost:3030",
+];
+
 app.get("/", (request, response) => {
+	const origin = request.header.origin;
+
+	if (ACCEPTED_ORIGINS.includes(origin)) {
+		response.header("Access-Cotrol-Allow-Origin", origin);
+	}
+
 	response.send("<h1>Hello World</h1>");
 });
 
@@ -45,13 +59,21 @@ app.delete("/api/notes/:id", (request, response) => {
 	response.status(204).end();
 });
 
-app.use(express.json());
+app.options("/api/notes/:id", (request, response) => {
+	const origin = request.header.origin;
 
-const generateId = () => {
-	const MaxId =
-		notes.length > 0 ? Math.max(...notes.map((n) => Number(n.id))) : 0;
-	return String(MaxId + 1);
-};
+	if (ACCEPTED_ORIGINS.includes(origin)) {
+		response.header("Access-Cotrol-Allow-Origin", origin);
+		response.header(
+			"Access-Control-Allowed-Methods",
+			"GET, POST, PATCH, DELETE"
+		);
+	}
+
+	response.status(200).end();
+});
+
+app.use(express.json());
 
 app.post("/api/notes", (request, response) => {
 	const result = validateNote(request.body);
