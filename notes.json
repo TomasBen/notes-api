@@ -1,0 +1,17 @@
+[
+	{
+		"id": "fff07c5c-ec93-408c-b622-478f85c6c409",
+		"content": "HTML is easy",
+		"important": "false"
+	},
+	{
+		"id": "2b53db2f-dfe9-4e47-b83f-3fafcc9227fb",
+		"content": "Browser can execute only JavaScript",
+		"important": false
+	},
+	{
+		"id": "0a159ba4-498e-483e-afe3-c7e9d35cde44",
+		"content": "GET and POST are the most important methods of HTTP protocol",
+		"important": true
+	}
+]

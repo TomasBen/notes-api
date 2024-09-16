@@ -1,8 +1,10 @@
-GET http://localhost:3000/api/notes
+GET http://localhost:3000/notes
 
 ###
+GET http://localhost:3000/notes/2b53db2f-dfe9-4e47-b83f-3fafcc9227fb
 
-POST http://localhost:3000/api/notes HTTP/1.1
+###
+POST http://localhost:3000/notes
 Content-Type: application/json
 
 {
@@ -12,7 +14,7 @@ Content-Type: application/json
 }
 
 ### 
-PATCH http://localhost:3000/api/notes/2
+PATCH http://localhost:3000/notes/2b53db2f-dfe9-4e47-b83f-3fafcc9227fb
 Content-Type: application/json 
 
 {
@@ -20,5 +22,5 @@ Content-Type: application/json
 }
 
 ### 
-DELETE  http://localhost:3000/api/notes/2
+DELETE  http://localhost:3000/api/notes/2b53db2f-dfe9-4e47-b83f-3fafcc9227fb
 
