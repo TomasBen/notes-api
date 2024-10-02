@@ -1,5 +1,5 @@
 import { validateNote, validatePartialNote } from "../Schemas/notes.js";
-import { NoteModel } from "../model/note.js";
+import { NoteModel } from "../model/mysql/note.js";
 
 const ACCEPTED_ORIGINS = [
 	"http://localhost:3000",

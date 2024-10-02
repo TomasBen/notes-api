@@ -11,8 +11,10 @@ app.listen(PORT, () => {
 });
 
 const unknownEndpoit = (request, response) => {
+	const endpoint = request.originalUrl;
+
 	response.status(404).send({
-		error: "unkown endpoint",
+		error: endpoint,
 	});
 };
 

@@ -1,22 +1,22 @@
 GET http://localhost:3000/notes
 
 ###
-GET http://localhost:3000/notes/2b53db2f-dfe9-4e47-b83f-3fafcc9227fb
+GET http://localhost:3000/notes/a67b06d1-7f7e-11ef-bb58-ca528eb12f7a
 
 ###
 POST http://localhost:3000/notes
 Content-Type: application/json
 
 {
-    "me cachis en lamar": "this shouldnt work",
+    "sql": "SELECT * FROM users",
     "content": "zod is a powerfull tool for server side type validation",
-    "important": false
+    "important": true
 }
 
 ### 
 PATCH http://localhost:3000/notes/2b53db2f-dfe9-4e47-b83f-3fafcc9227fb
 Content-Type: application/json 
-
+ 
 {
     "important": true
 }
