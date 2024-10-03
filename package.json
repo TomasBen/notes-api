@@ -7,7 +7,7 @@
 	"scripts": {
 		"start:mysql": "nodemon server-mysql.js",
 		"start:local": "nodemon server-local.js",
-		"dev": "nodemon server.js",
+		"dev": "echo \"Error: you have to use start:mysql or start:local in order to run the server\" && exit 1",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"keywords": [
