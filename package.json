@@ -5,9 +5,10 @@
 	"main": "index.js",
 	"type": "module",
 	"scripts": {
+		"start:mysql": "nodemon server-mysql.js",
+		"start:local": "nodemon server-local.js",
 		"dev": "nodemon server.js",
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "node server.js"
+		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"keywords": [
 		"node",

@@ -51,7 +51,17 @@ export class NoteModel {
 		return newNote;
 	}
 
-	static async delete({ id }) {}
+	static async delete({ id }) {
+		const notes = await connection.query(
+			`DELETE FROM notes WHERE id=UUID_TO_BIN(?);`,
+			[id]
+		);
+
+		console.log(notes, id);
+
+		if (notes > 0) return true;
+		else false;
+	}
 
 	static async update({ id, input }) {}
 }

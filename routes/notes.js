@@ -1,14 +1,19 @@
-import express from "express";
+import { json } from "express";
 import { Router } from "express";
-
 import { NoteController } from "../controller/notes.js";
 
-export const notesRouter = Router();
+export const createNoteRouter = ({ noteModel }) => {
+	const notesRouter = Router();
 
-notesRouter.use(express.json());
-notesRouter.get("/", NoteController.getAll);
-notesRouter.get("/:id", NoteController.getByID);
-notesRouter.delete("/:id", NoteController.deleteNote);
-notesRouter.options("/:id", NoteController.preFlight);
-notesRouter.post("/", NoteController.createNote);
-notesRouter.patch("/:id", NoteController.updateNote);
+	const noteController = new NoteController({ noteModel });
+
+	notesRouter.use(json());
+	notesRouter.get("/", noteController.getAll);
+	notesRouter.get("/:id", noteController.getByID);
+	notesRouter.delete("/:id", noteController.deleteNote);
+	notesRouter.options("/:id", noteController.preFlight);
+	notesRouter.post("/", noteController.createNote);
+	notesRouter.patch("/:id", noteController.updateNote);
+
+	return notesRouter;
+};
