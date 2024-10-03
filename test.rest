@@ -14,12 +14,13 @@ Content-Type: application/json
 }
 
 ### 
-PATCH http://localhost:3000/notes/2b53db2f-dfe9-4e47-b83f-3fafcc9227fb
+PATCH http://localhost:3000/notes/dffce2a1-81cc-11ef-8991-ca528eb12f7a
 Content-Type: application/json 
  
 {
+    "content": "zod is a powerful tool for type validation",
     "important": true
 }
 
 ### 
-DELETE  http://localhost:3000/notes/cbc5aec5-8106-11ef-8adc-ca528eb12f7a
+DELETE  http://localhost:3000/notes/7910a026-81cc-11ef-8991-ca528eb12f7a

@@ -30,7 +30,7 @@ export class NoteController {
 		const id = req.params;
 		const result = await this.noteModel.delete(id);
 
-		if (result) res.status(200).end();
+		if (result) res.status(200).json({ message: "note succesfully deleted" });
 		else res.status(404).json({ error: "note not found" });
 	};
 
@@ -60,13 +60,16 @@ export class NoteController {
 
 	updateNote = async (req, res) => {
 		const { id } = req.params;
-		const result = validatePartialNote(req.body);
+		const result = validateNote(req.body);
 
 		if (!result.success) {
 			return res.status(400).json({ error: JSON.parse(result.error.message) });
 		}
 
 		const updatedNote = await this.noteModel.update({ id, input: result.data });
-		if (updatedNote) return res.statusCode(200);
+
+		if (updatedNote)
+			return res.status(200).json({ message: "note updated succesfully" });
+		else res.status(404).json({ error: "note not found" });
 	};
 }

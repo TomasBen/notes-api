@@ -52,16 +52,24 @@ export class NoteModel {
 	}
 
 	static async delete({ id }) {
-		const notes = await connection.query(
+		const [notes] = await connection.query(
 			`DELETE FROM notes WHERE id=UUID_TO_BIN(?);`,
 			[id]
 		);
 
-		console.log(notes, id);
-
-		if (notes > 0) return true;
-		else false;
+		if (notes.affectedRows > 0) return true;
+		else return false;
 	}
 
-	static async update({ id, input }) {}
+	static async update({ id, input }) {
+		const { content, important } = input;
+
+		const [notes] = await connection.query(
+			"UPDATE notes SET content = ?, important = ? WHERE id=UUID_TO_BIN(?);",
+			[content, important, id]
+		);
+
+		if (notes.affectedRows > 0) return true;
+		else return false;
+	}
 }
